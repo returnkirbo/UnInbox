@@ -1,32 +1,19 @@
+import {
+  AVATAR_TYPES,
+  type AvatarSize,
+  type AvatarTypeName
+} from '@uninbox/types';
 import { cva, type VariantProps } from 'class-variance-authority';
 function generateAvatarUrl(
-  type: 'user' | 'org' | 'group' | 'contact',
+  type: AvatarTypeName,
   publicId: string,
-  size:
-    | '3xs'
-    | '2xs'
-    | 'xs'
-    | 'sm'
-    | 'md'
-    | 'lg'
-    | 'xl'
-    | '2xl'
-    | '3xl'
-    | '4xl'
-    | '5xl'
-    | undefined
+  size: AvatarSize | undefined
 ) {
-  const types = [
-    { name: 'user', value: 'u' },
-    { name: 'org', value: 'o' },
-    { name: 'contact', value: 'c' },
-    { name: 'group', value: 'g' }
-  ];
-  const typeObject = types.find((t) => t.name === type);
+  const typeObject = AVATAR_TYPES.find((t) => t.name === type);
   if (!typeObject) {
     return null;
   }
-  //@ts-ignore
+
   const storageBaseUrl = useRuntimeConfig().public.storageUrl;
 
   return `${storageBaseUrl}/avatar/${typeObject.value}/${publicId}/${

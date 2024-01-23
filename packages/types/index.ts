@@ -24,3 +24,25 @@ export interface MailDomainEntries {
   name: string;
   postalId: string;
 }
+
+export const AVATAR_TYPES = [
+  { name: 'user', value: 'u' },
+  { name: 'org', value: 'o' },
+  { name: 'contact', value: 'c' },
+  { name: 'group', value: 'g' }
+] as const;
+
+export type AvatarTypeName = (typeof AVATAR_TYPES)[number]['name'];
+
+export type AvatarSize =
+  | '3xs'
+  | '2xs'
+  | 'xs'
+  | 'sm'
+  | 'md'
+  | 'lg'
+  | 'xl'
+  | '2xl'
+  | '3xl'
+  | '4xl'
+  | '5xl';

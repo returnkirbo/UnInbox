@@ -3,23 +3,18 @@ import { eq } from '@uninbox/database/orm';
 import { db } from '@uninbox/database';
 import sharp from 'sharp';
 import { PutObjectCommand } from '@aws-sdk/client-s3';
+import { AVATAR_TYPES } from '@uninbox/types';
 
 //?  Avatar Path: /[type.value]/[userProfilePublicId]/[size]
 
 export default defineEventHandler(async (event) => {
-  const types = [
-    { name: 'user', value: 'u' },
-    { name: 'org', value: 'o' },
-    { name: 'contact', value: 'c' },
-    { name: 'group', value: 'g' }
-  ];
   const formInputs = await readMultipartFormData(event);
 
   const typeInput = formInputs
     .find((input) => input.name === 'type')
     .data.toString('utf8');
 
-  const typeObject = types.find((t) => t.name === typeInput);
+  const typeObject = AVATAR_TYPES.find((t) => t.name === typeInput);
   if (!typeObject) {
     setResponseStatus(event, 400);
     return send(event, 'Missing or invalid type value');
