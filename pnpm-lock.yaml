@@ -38,6 +38,37 @@ importers:
         specifier: ^5.3.3
         version: 5.3.3
 
+  apps/api:
+    dependencies:
+      '@hono/node-server':
+        specifier: ^1.4.1
+        version: 1.4.1
+      '@hono/zod-validator':
+        specifier: ^0.1.11
+        version: 0.1.11(hono@3.12.7)(zod@3.22.4)
+      '@uninbox/database':
+        specifier: workspace:*
+        version: link:../../packages/database
+      '@uninbox/types':
+        specifier: workspace:*
+        version: link:../../packages/types
+      '@uninbox/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
+      '@unkey/hono':
+        specifier: ^0.11.0
+        version: 0.11.0(hono@3.12.7)
+      hono:
+        specifier: ^3.12.7
+        version: 3.12.7
+      zod:
+        specifier: ^3.22.4
+        version: 3.22.4
+    devDependencies:
+      tsx:
+        specifier: ^3.12.2
+        version: 3.12.2
+
   apps/landing-page:
     dependencies:
       vue-wrap-balancer:
@@ -1671,6 +1702,13 @@ packages:
       jsdoc-type-pratt-parser: 4.0.0
     dev: true
 
+  /@esbuild-kit/cjs-loader@2.4.4:
+    resolution: {integrity: sha512-NfsJX4PdzhwSkfJukczyUiZGc7zNNWZcEAyqeISpDnn0PTfzMJR1aR8xAIPskBejIxBJbIgCCMzbaYa9SXepIg==}
+    dependencies:
+      '@esbuild-kit/core-utils': 3.3.2
+      get-tsconfig: 4.7.2
+    dev: true
+
   /@esbuild-kit/core-utils@3.3.2:
     resolution: {integrity: sha512-sPRAnw9CdSsRmEtnsl2WXWdyquogVpB3yZ3dgwJfe8zrOzTsV7cJvmwrKVa+0ma5BoiGJ+BoqkMvawbayKUsqQ==}
     dependencies:
@@ -2208,6 +2246,21 @@ packages:
 
   /@hexagon/base64@1.1.28:
     resolution: {integrity: sha512-lhqDEAvWixy3bZ+UOYbPwUbBkwBq5C1LAJ/xPC8Oi+lL54oyakv/npbA0aU2hgCsx/1NUd4IBvV03+aUBWxerw==}
+    dev: false
+
+  /@hono/node-server@1.4.1:
+    resolution: {integrity: sha512-7jB8iMs6T2FhREs4Ugk+7rzn7d5aC6wEX3FAy67ZafzcQqqBVggcLkFPCMauaFJJyjc+bFvMOdFxJXKYsBM6MQ==}
+    engines: {node: '>=18.14.1'}
+    dev: false
+
+  /@hono/zod-validator@0.1.11(hono@3.12.7)(zod@3.22.4):
+    resolution: {integrity: sha512-PQXeHUP0+36qpRt8yfeD7N2jbK3ETlGvSN6dMof/HwUC/APRokQRjpXZm4rrlG71Ft0aWE01+Bm4XejqPie5Uw==}
+    peerDependencies:
+      hono: '>=3.9.0'
+      zod: ^3.19.1
+    dependencies:
+      hono: 3.12.7
+      zod: 3.22.4
     dev: false
 
   /@humanwhocodes/config-array@0.11.14:
@@ -3202,6 +3255,7 @@ packages:
     dependencies:
       is-glob: 4.0.3
       micromatch: 4.0.5
+      napi-wasm: 1.1.0
     bundledDependencies:
       - napi-wasm
 
@@ -4978,6 +5032,19 @@ packages:
       hookable: 5.5.3
       unhead: 1.8.10
       vue: 3.4.15(typescript@5.3.3)
+
+  /@unkey/api@0.17.0:
+    resolution: {integrity: sha512-/rpzSG6VkDo+s/vr9Vz+94zNARrwsuDaqghQQlQ5aHlRR3TR+O8ikOF/hMYDV14k7ksOnvbBZ8lsq970kX23lw==}
+    dev: false
+
+  /@unkey/hono@0.11.0(hono@3.12.7):
+    resolution: {integrity: sha512-9q2l1odDkPry8EG+4QA2seuIItzW0dAP7kgrce/0PXw5lGe7syHHduffEz40jI/W0jS8jx/Gd28YiOF0qNQ7qw==}
+    peerDependencies:
+      hono: ^3.7.2
+    dependencies:
+      '@unkey/api': 0.17.0
+      hono: 3.12.7
+    dev: false
 
   /@unocss/astro@0.58.3(vite@5.0.12):
     resolution: {integrity: sha512-qJL+XkWYJhEIX4AmOtbfb2Zu4holTDpRscfvVci4T+2VWjyE3mgtsyNzi9ZChe/hdEPRa7g26gSpNQeMhjh/Kw==}
@@ -8864,6 +8931,11 @@ packages:
     resolution: {integrity: sha512-2bsegYkkHO+h/9MGbn6KWcE45cHZgPANo5LXF7EvWdT0yT2EguSVO1nDgU5c8+ZOPwp2vMNa7YFsJhVcDR9Sdg==}
     dev: true
 
+  /hono@3.12.7:
+    resolution: {integrity: sha512-jfyIoE8D5I1PGj0tXAGqpQ2miAWBBuHFjJsWjh0hbBVludQ8QO4lF6KTbPvjMi4venp8Q6DyMoJ51CwP6L5LNA==}
+    engines: {node: '>=16.0.0'}
+    dev: false
+
   /hookable@5.5.3:
     resolution: {integrity: sha512-Yc+BQe8SvoXH1643Qez1zqLRmbA5rCL+sSmk6TVos0LWVfNIB7PGncdlId77WzLGSIB5KaWgTaNTs2lNVEI6VQ==}
 
@@ -10602,6 +10674,9 @@ packages:
     engines: {node: ^18 || >=20}
     hasBin: true
     dev: false
+
+  /napi-wasm@1.1.0:
+    resolution: {integrity: sha512-lHwIAJbmLSjF9VDRm9GoVOy9AGp3aIvkjv+Kvz9h16QR3uSVYH78PNQUnT2U4X53mhlnV2M7wrhibQ3GHicDmg==}
 
   /natural-compare-lite@1.4.0:
     resolution: {integrity: sha512-Tj+HTDSJJKaZnfiuw+iaF9skdPpTo2GtEly5JHnWV/hfv2Qj/9RKsGISQtLh2ox3l5EAGw487hnBee0sIJ6v2g==}
@@ -13596,6 +13671,17 @@ packages:
     resolution: {integrity: sha512-LxhtAkPDTkVCMQjt2h6eBVY28KCjikZqZfMcC15YBeNjkgUpdCfBu5HoiOTDu86v6smE8yOjyEktJ8hlbANHQA==}
     engines: {node: '>=0.6.x'}
     dev: false
+
+  /tsx@3.12.2:
+    resolution: {integrity: sha512-ykAEkoBg30RXxeOMVeZwar+JH632dZn9EUJVyJwhfag62k6UO/dIyJEV58YuLF6e5BTdV/qmbQrpkWqjq9cUnQ==}
+    hasBin: true
+    dependencies:
+      '@esbuild-kit/cjs-loader': 2.4.4
+      '@esbuild-kit/core-utils': 3.3.2
+      '@esbuild-kit/esm-loader': 2.6.5
+    optionalDependencies:
+      fsevents: 2.3.3
+    dev: true
 
   /tsx@4.7.0:
     resolution: {integrity: sha512-I+t79RYPlEYlHn9a+KzwrvEwhJg35h/1zHsLC2JXvhC2mdynMv6Zxzvhv5EMV6VF5qJlLlkSnMVvdZV3PSIGcg==}
