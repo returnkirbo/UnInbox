@@ -2,7 +2,7 @@
   "name": "@uninbox/api",
   "private": true,
   "scripts": {
-    "dev": "PORT=3400 tsx watch src/index.ts",
+    "dev:api": "PORT=3400 tsx watch src/index.ts",
     "start": "PORT=80 tsx watch src/index.ts"
   },
   "dependencies": {
